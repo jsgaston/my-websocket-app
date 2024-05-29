@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener('DOMContentLoaded', function() {
+            var socket = io.connect('https://your-backend-server.herokuapp.com');
+            socket.on('my_response', function(msg) {
+                var messageDiv = document.createElement('div');
+                messageDiv.innerHTML = msg.data;
+                document.body.appendChild(messageDiv);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Mensajes desde el script de Python</h1>
+</body>
+</html>
